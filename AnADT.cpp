@@ -307,6 +307,11 @@ void List::detelePos()
 
 void List::change_oddeven()
 {
+	if (size <= 1)
+	{
+		cout << "此链表不足以进行该操作！" << endl;
+		return;
+	}
 	LinkedList back = head;
 	LinkedList now = head->next;
 	head = now;
@@ -314,7 +319,7 @@ void List::change_oddeven()
 	now->next = back;
 	back = back->next;
 	now = now->next;
-	while (now&&back)
+	while (back->next)
 	{
 		LinkedList swap = now;
 		now = back;
